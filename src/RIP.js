@@ -1,81 +1,91 @@
 /*
     RIP, REST in peace
 
-    Version     : 0.1.0
+    Version     : 0.2.0
     Author      : Aurélien Delogu (dev@dreamysource.fr)
     Homepage    : https://github.com/pyrsmk/RIP
     License     : MIT
 */
 
-this.RIP={
+this.RIP=function(){
 
-    /*
-        Map a custom request
+	var request_attribute_name='_METHOD';
 
-        Parameters
-            String method
-            String url
-            Object data
-    */
-    map:function(method,url,data){
-        // Define method
-        if(data===undefined){
-            data={};
-        }
-        data._METHOD=method;
-        // Prepare form
-        var form=document.createElement('form'),
-            inputs;
-        document.getElementsByTagName('body')[0].appendChild(form);
-        form.setAttribute('action',url);
-        form.setAttribute('method','post');
-        // Add data
-        for(var name in data){
-            if(data[name] instanceof Array){
-                for(var i=0,j=data[name].length;i<j;++i){
-                    inputs+='<input type="hidden" name="'+name+'[]" value="'+data[name][i]+'">';
-                }
-            }
-            else{
-                inputs+='<input type="hidden" name="'+name+'" value="'+data[name]+'">';
-            }
-        }
-        form.innerHTML=inputs;
-        // Submit!
-        form.submit();
-    },
+	return {
 
-    /*
-        POST request
+		setRequestAttributeName:function(name){
+			request_attribute_name=name;
+		},
 
-        Parameters
-            String url
-            Object data
-    */
-    POST:function(url,data){
-        this.map('POST',url,data);
-    },
+		/*
+			Map a custom request
 
-    /*
-        PUT request
+			Parameters
+				String method
+				String url
+				Object data
+		*/
+		map:function(method,url,data){
+			// Define method
+			if(data===undefined){
+				data={};
+			}
+			data[request_attribute_name]=method;
+			// Prepare form
+			var form=document.createElement('form'),
+				inputs;
+			document.getElementsByTagName('body')[0].appendChild(form);
+			form.setAttribute('action',url);
+			form.setAttribute('method','post');
+			// Add data
+			for(var name in data){
+				if(data[name] instanceof Array){
+					for(var i=0,j=data[name].length;i<j;++i){
+						inputs+='<input type="hidden" name="'+name+'[]" value="'+data[name][i]+'">';
+					}
+				}
+				else{
+					inputs+='<input type="hidden" name="'+name+'" value="'+data[name]+'">';
+				}
+			}
+			form.innerHTML=inputs;
+			// Submit!
+			form.submit();
+		},
 
-        Parameters
-            String url
-            Object data
-    */
-    PUT:function(url,data){
-        this.map('PUT',url,data);
-    },
+		/*
+			POST request
 
-    /*
-        DELETE request
+			Parameters
+				String url
+				Object data
+		*/
+		POST:function(url,data){
+			this.map('POST',url,data);
+		},
 
-        Parameters
-            String url
-            Object data
-    */
-    DELETE:function(url,data){
-        this.map('DELETE',url,data);
-    }
+		/*
+			PUT request
 
-};
+			Parameters
+				String url
+				Object data
+		*/
+		PUT:function(url,data){
+			this.map('PUT',url,data);
+		},
+
+		/*
+			DELETE request
+
+			Parameters
+				String url
+				Object data
+		*/
+		DELETE:function(url,data){
+			this.map('DELETE',url,data);
+		}
+
+	};
+	
+}();
