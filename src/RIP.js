@@ -1,7 +1,7 @@
 /*
     RIP, REST in peace
 
-    Version     : 0.2.0
+    Version     : 0.2.1
     Author      : Aurélien Delogu (dev@dreamysource.fr)
     Homepage    : https://github.com/pyrsmk/RIP
     License     : MIT
@@ -33,7 +33,7 @@ this.RIP=function(){
 			data[request_attribute_name]=method;
 			// Prepare form
 			var form=document.createElement('form'),
-				inputs;
+				inputs='';
 			document.getElementsByTagName('body')[0].appendChild(form);
 			form.setAttribute('action',url);
 			form.setAttribute('method','post');

@@ -1,4 +1,4 @@
-RIP 0.2.0
+RIP 0.2.1
 =========
 
 RIP (REST in peace) is a tool for sending synchroneous REST requests by generating a hidden `FORM` on-the-fly. It's really useful when developing with frameworks like Slim or Lumy without using synchroneous ajax requests.
