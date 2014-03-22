@@ -1,0 +1,20 @@
+{
+  "name": "RIP",
+  "version": "0.2.1",
+  "description": "REST in peace",
+  "main": "src/RIP.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pyrsmk/RIP.git"
+  },
+  "keywords": [
+    "rest",
+    "request"
+  ],
+  "authors": ["Aurélien Delogu"],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pyrsmk/RIP/issues"
+  },
+  "homepage": "http://dreamysource.fr/product/rip"
+}
