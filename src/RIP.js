@@ -1,10 +1,8 @@
 /*
-    RIP, REST in peace
+	RIP, REST in peace
 
-    Version     : 0.2.1
-    Author      : Aurélien Delogu (dev@dreamysource.fr)
-    Homepage    : https://github.com/pyrsmk/RIP
-    License     : MIT
+	Author
+		Aurélien Delogu (dev@dreamysource.fr)
 */
 
 this.RIP=function(){
