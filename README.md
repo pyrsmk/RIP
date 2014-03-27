@@ -46,4 +46,4 @@ RIP.setRequestAttributeName('__REQUEST__');
 License
 -------
 
-MIT license everywhere!
+Published under the [MIT license](http://dreamysource.mit-license.org).
