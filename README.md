@@ -3,6 +3,16 @@ RIP 0.2.1
 
 RIP (REST in peace) is a tool for sending synchroneous REST requests by generating a hidden `FORM` on-the-fly. It's really useful when developing with frameworks like Slim or Lumy without using synchroneous ajax requests.
 
+Install
+-------
+
+You can pick the minified library or install it with :
+
+```
+bower install rip
+npm install pyrsmk-rip --save-dev
+```
+
 Use
 ---
 
