@@ -11,7 +11,13 @@ this.RIP=function(){
 
 	return {
 
-		setRequestAttributeName:function(name){
+		/*
+			Set the REST request attribute name
+
+			Parameters
+				String name
+		*/
+		setRequestAttributeName: function(name){
 			request_attribute_name=name;
 		},
 
@@ -23,30 +29,53 @@ this.RIP=function(){
 				String url
 				Object data
 		*/
-		map:function(method,url,data){
-			// Define method
-			if(data===undefined){
-				data={};
+		map: function(method,url,data){
+			// Verify
+			if(typeof data!='object'){
+				throw "An object is expected as data argument";
 			}
+			// Prepare
+			var form,
+				build=function(value,name){
+					var inputs='',
+						i,j,n;
+					if(value.pop){
+						for(i=0,j=value.length;i<j;++i){
+							if(name){
+								n=name+'['+i+']';
+							}
+							else{
+								n=i;
+							}
+							inputs+=build(value[i],n);
+						}
+					}
+					else if(typeof value=='object'){
+						for(i in value){
+							if(name){
+								n=name+'['+i+']';
+							}
+							else{
+								n=i;
+							}
+							inputs+=build(value[i],n);
+						}
+					}
+					else{
+						inputs+='<input type="hidden" name="'+name+'" value="'+value+'">';
+					}
+					return inputs;
+				};
+			data=data || {};
+			// Define method
 			data[request_attribute_name]=method;
-			// Prepare form
-			var form=document.createElement('form'),
-				inputs='';
+			// Create form
+			form=document.createElement('form');
 			document.getElementsByTagName('body')[0].appendChild(form);
 			form.setAttribute('action',url);
 			form.setAttribute('method','post');
-			// Add data
-			for(var name in data){
-				if(data[name] instanceof Array){
-					for(var i=0,j=data[name].length;i<j;++i){
-						inputs+='<input type="hidden" name="'+name+'[]" value="'+data[name][i]+'">';
-					}
-				}
-				else{
-					inputs+='<input type="hidden" name="'+name+'" value="'+data[name]+'">';
-				}
-			}
-			form.innerHTML=inputs;
+			// Create inputs
+			form.innerHTML=build(data);
 			// Submit!
 			form.submit();
 		},
@@ -58,7 +87,7 @@ this.RIP=function(){
 				String url
 				Object data
 		*/
-		POST:function(url,data){
+		POST: function(url,data){
 			this.map('POST',url,data);
 		},
 
@@ -69,7 +98,7 @@ this.RIP=function(){
 				String url
 				Object data
 		*/
-		PUT:function(url,data){
+		PUT: function(url,data){
 			this.map('PUT',url,data);
 		},
 
@@ -80,7 +109,7 @@ this.RIP=function(){
 				String url
 				Object data
 		*/
-		DELETE:function(url,data){
+		DELETE: function(url,data){
 			this.map('DELETE',url,data);
 		}
 

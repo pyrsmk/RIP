@@ -1,0 +1,37 @@
+{
+	"firstname"   : "Pedro",
+	"lastname"    : "Sanchez",
+	"age"         : 30,
+	"children"    : [
+		{
+			"firstname": "Gabriella",
+			"lastname": "Sanchez",
+			"age": 17,
+			"notes": {
+				"french": [10,11,13,9,13],
+				"maths": [14,13,13,12,15],
+				"sports": [17,15,18]
+			}
+		},
+		{
+			"firstname": "Nicolaï",
+			"lastname": "Sanchez",
+			"age": 15,
+			"notes": {
+				"french": [9,8],
+				"maths": [12,10,11],
+				"sports": [20,19,20]
+			}
+		},
+		{
+			"firstname": "Alison",
+			"lastname": "Gardner",
+			"age": 9,
+			"notes": {
+				"french": [15,13,14,15],
+				"maths": [13,12,12],
+				"sports": [8,9,7]
+			}
+		}
+	]
+}

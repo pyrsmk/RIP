@@ -1,0 +1,22 @@
+[
+	{
+		"type": "POST",
+		"attribute": "_METHOD"
+	},
+	{
+		"type": "PUT",
+		"attribute": "_METHOD"
+	},
+	{
+		"type": "DELETE",
+		"attribute": "_METHOD"
+	},
+	{
+		"type": "TEST",
+		"attribute": "_METHOD"
+	},
+	{
+		"type": "POST",
+		"attribute": "__REQUEST__"
+	}
+]

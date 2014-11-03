@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RIP - unit testing</title>
+		<meta charset="utf-8">
+		<script src="js/consolelog.min.js"></script>
+		<script src="js/ready-20140222.min.js"></script>
+		<script src="js/qwest-0.6.0.min.js"></script>
+		<script src="../src/RIP.js"></script>
+	</head>
+	<body>
+		<script>
+
+			function getParameterByName(name) {
+				name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+					results = regex.exec(location.search);
+				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+
+			domready(function(){
+
+				var data,
+					requests,
+					req=getParameterByName('req') || 1;
+
+				qwest.get('data.json',null,{async:false})
+					 .success(function(response){
+						data=response;
+					 })
+					 .error(function(){
+						throw 'data.json has failed to load';
+					 });
+
+				qwest.get('requests.json',null,{async:false})
+					 .success(function(response){
+						requests=response;
+					 })
+					 .error(function(){
+						throw 'requests.json has failed to load';
+					 });
+
+				RIP.setRequestAttributeName(requests[req-1].attribute);
+				if(RIP.hasOwnProperty(requests[req-1].type)){
+					RIP[type]('test.php?'+requests[req-1].attribute+'='+requests[req-1].type+'&req='+req,data);
+				}
+				else{
+					RIP.map(requests[req-1].type,'test.php?'+requests[req-1].attribute+'='+requests[req-1].type+'&req='+req,data);
+				}
+
+			});
+
+		</script>
+	</body>
+</html>
