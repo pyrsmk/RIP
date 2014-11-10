@@ -22,6 +22,7 @@
 
 				var data,
 					requests,
+					request,
 					req=getParameterByName('req') || 1;
 
 				qwest.get('data.json',null,{async:false})
@@ -40,12 +41,13 @@
 						throw 'requests.json has failed to load';
 					 });
 
-				RIP.setRequestAttributeName(requests[req-1].attribute);
-				if(RIP.hasOwnProperty(requests[req-1].type)){
-					RIP[type]('test.php?'+requests[req-1].attribute+'='+requests[req-1].type+'&req='+req,data);
+				request=requests[req-1];
+				RIP.setRequestAttributeName(request.attribute);
+				if(RIP.hasOwnProperty(request.type)){
+					RIP[request.type]('test.php?'+request.attribute+'='+request.type+'&req='+req,data);
 				}
 				else{
-					RIP.map(requests[req-1].type,'test.php?'+requests[req-1].attribute+'='+requests[req-1].type+'&req='+req,data);
+					RIP.map(request.type,'test.php?'+request.attribute+'='+request.type+'&req='+req,data);
 				}
 
 			});

@@ -5,7 +5,17 @@
 		Aurélien Delogu (dev@dreamysource.fr)
 */
 
-this.RIP=function(){
+;(function(context,name,definition){
+	if(typeof module!='undefined' && module.exports){
+		module.exports=definition();
+	}
+	else if(typeof define=='function' && define.amd){
+		define(definition);
+	}
+	else{
+		context[name]=definition();
+	}
+}(this,'RIP',function(){
 
 	var request_attribute_name='_METHOD';
 
@@ -115,4 +125,4 @@ this.RIP=function(){
 
 	};
 	
-}();
+}));
