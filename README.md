@@ -9,6 +9,7 @@ Install
 You can pick the minified library or install it with :
 
 ```
+jam install pyrsmk-rip
 bower install rip
 npm install pyrsmk-rip --save-dev
 ```
