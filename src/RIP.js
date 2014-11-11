@@ -1,9 +1,4 @@
-/*
-	RIP, REST in peace
-
-	Author
-		Aurélien Delogu (dev@dreamysource.fr)
-*/
+/* RIP 0.3.0 (https://github.com/pyrsmk/RIP) */
 
 ;(function(context,name,definition){
 	if(typeof module!='undefined' && module.exports){
