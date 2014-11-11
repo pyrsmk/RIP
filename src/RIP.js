@@ -7,13 +7,13 @@
 
 ;(function(context,name,definition){
 	if(typeof module!='undefined' && module.exports){
-		module.exports=definition();
+		module.exports=definition;
 	}
 	else if(typeof define=='function' && define.amd){
 		define(definition);
 	}
 	else{
-		context[name]=definition();
+		context[name]=definition;
 	}
 }(this,'RIP',function(){
 
@@ -125,4 +125,4 @@
 
 	};
 	
-}));
+}()));
