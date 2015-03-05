@@ -16,4 +16,13 @@
     "url": "https://github.com/pyrsmk/RIP/issues"
   },
   "homepage": "http://dreamysource.fr/product/rip"
+  "ignore": [
+    ".git/",
+    ".gitignore",
+    "nodes_modules/",
+    "src/",
+    "tests/",
+    "Gruntfile.js",
+    "package.json"
+  ]
 }
