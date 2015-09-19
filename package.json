@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/pyrsmk/RIP.git"
   },
-  "main": "src/RIP.js",
+  "main": "RIP.min.js",
   "keywords": [
     "rest",
     "request"
