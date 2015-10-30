@@ -1,4 +1,4 @@
-/*! RIP 0.3.1 (https://github.com/pyrsmk/RIP) */
+/*! RIP 0.3.2 (https://github.com/pyrsmk/RIP) */
 
 ;(function(context,name,definition){
 	if(typeof module!='undefined' && module.exports){
