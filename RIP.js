@@ -1,3 +1,12 @@
+;(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
+  } else {
+    root.RIP = factory();
+  }
+}(this, function() {
 /*! RIP 0.3.3 (https://github.com/pyrsmk/RIP) */
 
 ;(function(context,name,definition){
@@ -121,3 +130,6 @@
 	};
 	
 }()));
+
+return RIP;
+}));
