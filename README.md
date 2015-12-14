@@ -1,7 +1,7 @@
-RIP 0.3.3
+RIP 0.3.4
 =========
 
-RIP (REST in peace) is a tool for sending synchroneous REST requests by generating a hidden `FORM` on-the-fly. It's really useful when developing with frameworks like Slim or Lumy without using synchroneous ajax requests.
+RIP (REST in peace) is a tool for sending synchroneous REST requests by generating a hidden `FORM` on-the-fly. It's really useful when developing with frameworks like [Slim](http://www.slimframework.com) or [Lumy](https://github.com/pyrsmk/Lumy) without using synchroneous ajax requests.
 
 Install
 -------
@@ -9,9 +9,9 @@ Install
 You can pick the minified library or install it with :
 
 ```
-jam install pyrsmk-rip
+npm install pyrsmk-rip
 bower install rip
-npm install pyrsmk-rip --save-dev
+jam install pyrsmk-rip
 ```
 
 Use
@@ -19,19 +19,19 @@ Use
 
 RIP handles basic `POST`, `PUT` and `DELETE` requests, but can manage other manual request types.
 
-```javascript
+```js
 // API
-RIP.POST(<url>,[data]);
-RIP.PUT(<url>,[data]);
-RIP.DELETE(<url>,[data]);
-RIP.map(<type>,<url>,[data]);
+RIP.POST(<url>, [data]);
+RIP.PUT(<url>, [data]);
+RIP.DELETE(<url>, [data]);
+RIP.map(<type>, <url>, [data]);
 
 // Simple example
 RIP.POST('/url');
 
 
 // Data example
-RIP.PUT('/newclient',{
+RIP.PUT('/newclient', {
     firstname   : 'Foo',
     lastname    : 'Bar',
     age         : 27,
@@ -43,8 +43,8 @@ RIP.PUT('/newclient',{
 });
 
 // Map example
-RIP.map('REQUEST_TYPE','/someurl',{
-    foo : 'bar'
+RIP.map('REQUEST_TYPE', '/someurl', {
+    foo: 'bar'
 });
 ```
 
