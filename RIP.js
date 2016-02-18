@@ -7,7 +7,7 @@
     root.RIP = factory();
   }
 }(this, function() {
-/*! RIP 0.3.4 (https://github.com/pyrsmk/RIP) */
+/*! RIP 0.3.5 (https://github.com/pyrsmk/RIP) */
 
 var request_attribute_name='_METHOD';
 
@@ -20,7 +20,7 @@ var RIP = {
 			String name
 	*/
 	setRequestAttributeName: function(name) {
-		request_attribute_name=name;
+		request_attribute_name = name;
 	},
 
 	/*
@@ -33,7 +33,7 @@ var RIP = {
 	*/
 	map: function(method, url, data) {
 		// Verify
-		if(typeof data != 'object') {
+		if(data !== null && typeof data != 'object') {
 			throw "An object is expected as data argument";
 		}
 		// Prepare

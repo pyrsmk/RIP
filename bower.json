@@ -1,7 +1,7 @@
 {
   "name": "RIP",
   "description": "REST in peace",
-  "main": "src/RIP.js",
+  "main": "RIP.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/pyrsmk/RIP.git"
