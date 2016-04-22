@@ -7,9 +7,9 @@
     root.RIP = factory();
   }
 }(this, function() {
-/*! RIP 0.3.6 (https://github.com/pyrsmk/RIP) */
+/*! RIP 0.3.7 (https://github.com/pyrsmk/RIP) */
 
-var request_attribute_name='_METHOD';
+var request_attribute_name = '_METHOD';
 
 var RIP = {
 
@@ -51,7 +51,7 @@ var RIP = {
 				else if(typeof value == 'object') {
 					for(i in value) {
 						if(name) {
-							n = name+'['+i+']';
+							n = name + '[' + i + ']';
 						}
 						else {
 							n = i;
@@ -59,8 +59,8 @@ var RIP = {
 						inputs += build(value[i], n);
 					}
 				}
-				else{
-					inputs += '<input type="hidden" name="'+name+'" value="'+value+'">';
+				else {
+					inputs += '<input type="hidden" name="' + name + '" value="' + value.replace(/"/g, '&quot;') + '">';
 				}
 				return inputs;
 			};
