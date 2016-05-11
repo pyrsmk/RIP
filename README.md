@@ -48,7 +48,7 @@ RIP.map('REQUEST_TYPE', '/someurl', {
 });
 ```
 
-If you pass a boolean value into the data parameter, the value will be considered as a checkbox and will return `0` or `1` to your remote script.
+If you pass a boolean value into the data parameter, the value will be considered as a checkbox and will return `on` or `` to your remote script.
 
 Please note that requests are using `_METHOD` POST data attribute, as used in Slim and Lumy. But if you need to change the name of this attribute to `__REQUEST__` (per example), you can do this:
 
