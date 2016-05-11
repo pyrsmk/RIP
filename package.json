@@ -1,7 +1,7 @@
 {
   "name": "pyrsmk-rip",
   "description": "REST in peace",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "author": "Aurélien Delogu <pyrsmk@dreamysource.fr> (http://dreamysource.fr)",
   "repository": {
     "type": "git",
