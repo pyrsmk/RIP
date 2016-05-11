@@ -1,4 +1,4 @@
-RIP 0.3.7
+RIP 0.3.8
 =========
 
 RIP (REST in peace) is a tool for sending synchroneous REST requests by generating a hidden `FORM` on-the-fly. It's really useful when developing with frameworks like [Slim](http://www.slimframework.com) or [Lumy](https://github.com/pyrsmk/Lumy) without using synchroneous ajax requests : it just send data like a normal `FORM` would do.
@@ -47,6 +47,8 @@ RIP.map('REQUEST_TYPE', '/someurl', {
     foo: 'bar'
 });
 ```
+
+If you pass a boolean value into the data parameter, the value will be considered as a checkbox and will return `0` or `1` to your remote script.
 
 Please note that requests are using `_METHOD` POST data attribute, as used in Slim and Lumy. But if you need to change the name of this attribute to `__REQUEST__` (per example), you can do this:
 

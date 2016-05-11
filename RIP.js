@@ -7,7 +7,7 @@
     root.RIP = factory();
   }
 }(this, function() {
-/*! RIP 0.3.7 (https://github.com/pyrsmk/RIP) */
+/*! RIP 0.3.8 (https://github.com/pyrsmk/RIP) */
 
 var request_attribute_name = '_METHOD';
 
@@ -59,7 +59,10 @@ var RIP = {
 						inputs += build(value[i], n);
 					}
 				}
-				else {
+				else if(typeof value == 'boolean') {
+					inputs += '<input type="hidden" name="' + name + '" value="' + (value ? 1 : 0) + '">';
+				}
+				else if(typeof value == 'string') {
 					inputs += '<input type="hidden" name="' + name + '" value="' + value.replace(/"/g, '&quot;') + '">';
 				}
 				return inputs;
