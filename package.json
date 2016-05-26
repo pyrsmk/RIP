@@ -1,7 +1,7 @@
 {
   "name": "pyrsmk-rip",
   "description": "REST in peace",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "author": "Aurélien Delogu <pyrsmk@dreamysource.fr> (http://dreamysource.fr)",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "url": "https://github.com/pyrsmk/RIP/issues",
     "email": "dev@dreamysource.fr"
   },
-  "homepage": "http://dreamysource.fr/product/RIP",
+  "homepage": "http://dreamysource.io/project/rip",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.11.0",

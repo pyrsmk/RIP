@@ -1,4 +1,4 @@
-/*! RIP 0.3.9 (https://github.com/pyrsmk/RIP) */
+/*! RIP 0.3.10 (https://github.com/pyrsmk/RIP) */
 
 var request_attribute_name = '_METHOD';
 
