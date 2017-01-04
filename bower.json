@@ -1,7 +1,7 @@
 {
   "name": "RIP",
   "description": "REST in peace",
-  "main": "RIP.js",
+  "main": "lib/RIP.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/pyrsmk/RIP.git"
@@ -21,7 +21,7 @@
     ".gitignore",
     "nodes_modules/",
     "tests/",
-    "Gruntfile.js",
+    "gulpfile.js",
     "package.json"
   ]
 }

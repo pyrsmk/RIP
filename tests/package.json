@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "qwest": "^4.4.5"
+  }
+}

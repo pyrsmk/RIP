@@ -3,10 +3,8 @@
 	<head>
 		<title>RIP</title>
 		<meta charset="utf-8">
-		<script src="js/consolelog.min.js"></script>
-		<script src="js/ready-20140222.min.js"></script>
-		<script src="js/qwest-0.6.0.min.js"></script>
-		<script src="../RIP.min.js"></script>
+		<script src="node_modules/qwest/qwest.min.js"></script>
+		<script src="../lib/RIP.min.js"></script>
 	</head>
 	<body>
 		<script>
@@ -18,39 +16,36 @@
 				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 			}
 
-			domready(function(){
+            var data,
+                requests,
+                request,
+                req = getParameterByName('req') || 1;
+            
+            qwest.get('data.json')
+                 .then(function(xhr, response) {
+                    data = response;
+                    
+                    qwest.get('requests.json')
+                         .then(function(xhr, response) {
+                            requests = response;
+                            request = requests[req-1];
+            
+                            RIP.setRequestAttributeName(request.attribute);
 
-				var data,
-					requests,
-					request,
-					req=getParameterByName('req') || 1;
-
-				qwest.get('data.json',null,{async:false})
-					 .success(function(response){
-						data=response;
-					 })
-					 .error(function(){
-						throw 'data.json has failed to load';
-					 });
-
-				qwest.get('requests.json',null,{async:false})
-					 .success(function(response){
-						requests=response;
-					 })
-					 .error(function(){
-						throw 'requests.json has failed to load';
-					 });
-
-				request=requests[req-1];
-				RIP.setRequestAttributeName(request.attribute);
-				if(RIP.hasOwnProperty(request.type)){
-					RIP[request.type]('test.php?'+request.attribute+'='+request.type+'&req='+req,data);
-				}
-				else{
-					RIP.map(request.type,'test.php?'+request.attribute+'='+request.type+'&req='+req,data);
-				}
-
-			});
+                            if(RIP.hasOwnProperty(request.type)){
+                                RIP[request.type]('test.php?' + request.attribute + '=' + request.type + '&req=' + req, data);
+                            }
+                            else{
+                                RIP.map(request.type, 'test.php?' + request.attribute + '=' + request.type + '&req=' + req, data);
+                            }
+                         })
+                         .catch(function(e, xhr, response) {
+                            throw 'requests.json has failed to load';
+                         });
+                 })
+                 .catch(function(e, xhr, response) {
+                    throw 'data.json has failed to load';
+                 });
 
 		</script>
 	</body>
